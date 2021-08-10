@@ -48,7 +48,7 @@ const toggleReminder=(id)=>{
   return (
     <div className="container">
       <h1 style={{color:'#1abc9c',backgroundColor:'#34495e'}}>Hey I am a React APP</h1>
-      <Header  title='Version 2' onAdd={()=>setShowAddTask(!showAddTask)}/>
+      <Header  title='Version 2' onAdd={()=>setShowAddTask(!showAddTask)} show={showAddTask}/>
       {showAddTask &&<AddTasks onAdd={addTasks}/>}
       {tasks.length>0?(<Tasks tasks={tasks} remove={remover} onToggle={toggleReminder}/>):("No due tasks")}
   
