@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id":1,
+      "text":"Make Passport",
+      "day":"ASAP",
+      "reminder":true
+  },
+  {
+      "id":2,
+      "text":"REACTJS",
+      "day":"ASAP",
+      "reminder":true
+  },
+  {
+      "id":3,
+      "text":"Exercise",
+      "day":"ASAP",
+      "reminder":true
+  }
+  ]
+}
