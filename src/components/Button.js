@@ -1,14 +1,14 @@
 import React from 'react'
 
 // const Button = ({colour,text}) => <button style={{backgroundColor:colour}} className='btn'>{text}</button> 
-const Button = ({colour,text}) =>{
-    const clicked=(colour)=>{
-        console.log(colour)
-    }
+const Button = ({colour,text,onClickk}) =>{
+    // const clicked=(colour)=>{
+    //     console.log(colour)
+    // }
     return(
-<button onClick={()=>clicked(colour)}
+<button 
  style={{backgroundColor:colour}} 
- className='btn'>{text}</button> 
+ className='btn' onClick={onClickk}>{text} </button> 
 
     )
 } 

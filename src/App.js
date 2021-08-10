@@ -6,6 +6,7 @@ import Header from './components/Headers'
 import Tasks from './components/Tasks'
 import AddTasks from './components/AddTasks'
 function App() {
+  const [showAddTask,setShowAddTask]=useState(true)
   const [tasks,setTasks]=useState([
     {
         id:1,
@@ -47,8 +48,8 @@ const toggleReminder=(id)=>{
   return (
     <div className="container">
       <h1 style={{color:'#1abc9c',backgroundColor:'#34495e'}}>Hey I am a React APP</h1>
-      <Header  title='Version 2'/>
-      <AddTasks onAdd={addTasks}/>
+      <Header  title='Version 2' onAdd={()=>setShowAddTask(!showAddTask)}/>
+      {showAddTask &&<AddTasks onAdd={addTasks}/>}
       {tasks.length>0?(<Tasks tasks={tasks} remove={remover} onToggle={toggleReminder}/>):("No due tasks")}
   
     </div>
