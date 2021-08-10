@@ -1,32 +1,16 @@
 // import logo from './logo.svg';
 // import './App.css';
 // https://flatuicolors.com/palette/defo for UI colors.
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Header from './components/Headers'
 import Tasks from './components/Tasks'
 import AddTasks from './components/AddTasks'
 function App() {
   const [showAddTask,setShowAddTask]=useState(true)
-  const [tasks,setTasks]=useState([
-    {
-        id:1,
-        text:"Make Passport",
-        day:"ASAP",
-        reminder:true,
-    },
-    {
-        id:2,
-        text:"REACTJS",
-        day:"ASAP",
-        reminder:true,
-    },
-    {
-        id:3,
-        text:"Exercise",
-        day:"ASAP",
-        reminder:true,
-    }
-])
+  const [tasks,setTasks]=useState([])
+  useEffect(()=>{
+    const fetchTasks=async()=>
+  })
 // Add task
 const addTasks=(task)=>{
   console.log(task)
