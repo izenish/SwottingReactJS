@@ -3,8 +3,11 @@
 // https://flatuicolors.com/palette/defo for UI colors.
 import { useState, useEffect } from "react";
 import Header from "./components/Headers.jsx";
+import Footer from "./components/Footer.jsx";
 import Tasks from "./components/Tasks.jsx";
 import AddTasks from "./components/AddTasks.jsx";
+import About from "./components/About";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   const [showAddTask, setShowAddTask] = useState(true);
   const [tasks, setTasks] = useState([]);
@@ -44,10 +47,9 @@ function App() {
 
   // Deleter
   const remover = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    await fetch(`http://localhost:5000/tasks/${id}`, {
       method: "DELETE",
     });
-    res.status === 200;
     // console.log('Deleted',id)
     // setTasks(tasks.filter((task)=>task.id!==id))
   };
@@ -61,22 +63,39 @@ function App() {
     );
   };
   return (
-    <div className="container">
-      <h1 style={{ color: "#1abc9c", backgroundColor: "#34495e" }}>
-        Hey I am a React APP
-      </h1>
-      <Header
-        title="Version 2"
-        onAdd={() => setShowAddTask(!showAddTask)}
-        show={showAddTask}
-      />
-      {showAddTask && <AddTasks onAdd={addTasks} />}
-      {tasks.length > 0 ? (
-        <Tasks tasks={tasks} remove={remover} onToggle={toggleReminder} />
-      ) : (
-        "No due tasks"
-      )}
-    </div>
+    <Router>
+      <div className="container">
+        <h1 style={{ color: "#1abc9c", backgroundColor: "#34495e" }}>
+          Hey I am a React APP
+        </h1>
+        <Header
+          title="Version 2"
+          onAdd={() => setShowAddTask(!showAddTask)}
+          show={showAddTask}
+        />
+
+        <Route
+          path="/"
+          exact
+          render={(props) => (
+            <>
+              {showAddTask && <AddTasks onAdd={addTasks} />}
+              {tasks.length > 0 ? (
+                <Tasks
+                  tasks={tasks}
+                  remove={remover}
+                  onToggle={toggleReminder}
+                />
+              ) : (
+                "No due tasks"
+              )}
+            </>
+          )}
+        />
+        <Route path="/about" component={About} />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

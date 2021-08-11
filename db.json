@@ -5,6 +5,18 @@
       "day": "",
       "reminder": false,
       "id": 3
+    },
+    {
+      "text": "eat",
+      "day": "",
+      "reminder": "",
+      "id": 4
+    },
+    {
+      "text": "Bang",
+      "day": "",
+      "reminder": false,
+      "id": 5
     }
   ]
 }
