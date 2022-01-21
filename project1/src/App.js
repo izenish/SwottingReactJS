@@ -1,5 +1,5 @@
 // https://codesandbox.io/s/react-yud4c     --> esbata ho
-import "./App.css";
+import "./styles.css";
 import React, { useState } from "react";
 import Field from "./components/field";
 import Languages from "./components/languages";
